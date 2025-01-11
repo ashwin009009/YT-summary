@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { Youtube, LogOut, History } from 'lucide-react';
+import { Youtube, LogOut } from 'lucide-react';
 
 interface Summary {
   title: string;
@@ -13,7 +13,7 @@ export default function Dashboard() {
   const [url, setUrl] = useState('');
   const [loading, setLoading] = useState(false);
   const [currentSummary, setCurrentSummary] = useState<Summary | null>(null);
-  const [history, setHistory] = useState<Summary[]>([]);
+  // const [history, setHistory] = useState<Summary[]>([]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,7 +42,7 @@ export default function Dashboard() {
       };
 
       setCurrentSummary(newSummary);
-      setHistory((prev) => [newSummary, ...prev]);
+      // setHistory((prev) => [newSummary, ...prev]);
     } catch (error) {
       console.error('Failed to generate summary:', error);
     } finally {
